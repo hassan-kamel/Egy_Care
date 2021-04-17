@@ -1,0 +1,45 @@
+    .login {
+        .login-main {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            .form {
+                direction: rtl;
+                flex: 1;
+                form {
+                    button {
+                        width: 100%;
+                        margin: 1rem 0;
+                    }
+                    h4 {
+                        display: inline;
+                    }
+                    a {
+                        color: #0080F6;
+                        font-size: 2rem;
+                        text-decoration: none;
+                        margin-right: 1rem;
+                        &:hover {
+                            filter: brightness(50%);
+                        }
+                    }
+                }
+            }
+            .wall {
+                flex: 1;
+                .img {
+                    width: 100%;
+                    // display: none;
+                }
+            }
+        }
+    }
+    
+    @media (max-width:900px) {
+        .login-main {
+            .wall {
+                display: none;
+            }
+        }
+    }

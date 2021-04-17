@@ -1,0 +1,89 @@
+    .app-bar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 10vh;
+        border-bottom: #0080F6 0.5rem solid;
+        // border-radius: 0 0 50% 50%;
+        background-color: #0080F6;
+        // box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 10vh;
+            .logo {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                img {
+                    height: 8vh;
+                }
+                .egycare {
+                    margin-left: 2rem;
+                    h1 {
+                        font-size: 3rem;
+                        text-transform: capitalize;
+                        color: #F5F5F5;
+                    }
+                }
+                margin-right: 2rem;
+            }
+            .links {
+                width: 70%;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                ul {
+                    width: 100%;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    list-style: none;
+                    li {
+                        color: #F5F5F5;
+                        cursor: pointer;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+                        &:hover {
+                            filter: contrast(200%);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .main {
+        margin-top: 20vh;
+        .cards {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            .card {
+                margin: 1rem;
+                padding: 2rem;
+                width: 20%;
+                background-color: #F5F5F5;
+                cursor: pointer;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                box-shadow: -5px -5px 5px rgba(0, 0, 0, 0.5), 5px 5px 5px rgba(0, 0, 0, 0.5);
+                border-radius: 1rem;
+                transition: transform 0.5s ease;
+                &:hover {
+                    transform: scale(1.2);
+                }
+                img {
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+    @media (max-width:900px) {}
