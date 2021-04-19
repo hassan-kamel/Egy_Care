@@ -1,26 +1,32 @@
 <section class="register">
     <div class="container">
         <div class="form">
-            <form action="">
+            <form action="" (ngSubmit)="onSubmit()" [formGroup]="form" >
                 <div class="input">
                     <i class="fas fa-user"></i>
-                    <input type="text" placeholder="اسم المستشفي">
+                    <input type="text" placeholder="اسم المستشفي" formControlName="Name">
                 </div>
                 <div class="input">
                     <i class="fas fa-envelope"></i>
-                    <input type="text" placeholder="البريد الالكتروني">
+                    <input type="text" placeholder="البريد الالكتروني" formControlName="Email">
                 </div>
 
                 <div class="input">
                     <i class="fas fa-unlock-alt"></i>
-                    <input type="password" placeholder="الرقم السري">
+                    <input type="password" placeholder="الرقم السري" formControlName="Password">
                     <i class="fas fa-eye"></i>
                 </div>
                 <div class="input">
-                    <i class="fas fa-unlock-alt"></i>
-                    <input type="password" placeholder="تأكيد الرقم السري">
-                    <i class="fas fa-eye"></i>
+                    
+                    <input type="text" placeholder="عنوان المستشفي" formControlName="Location">
+                    
                 </div>
+                <div class="input">
+                    
+                    <input type="file"  multiple (change)="uploadFile($event)"  formControlName="Files">
+                    
+                </div>
+               
                 <div class="button">
                     <button class="btn btn-colored">دخول</button>
                 </div>
