@@ -1,7 +1,7 @@
 <section class="register">
     <div class="container">
         <div class="form">
-            <form action="" (ngSubmit)="onSubmit()" [formGroup]="form" >
+            <form action="" (ngSubmit)="onSubmit()" [formGroup]="form">
                 <div class="input">
                     <i class="fas fa-user"></i>
                     <input type="text" placeholder="اسم المستشفي" formControlName="Name">
@@ -17,16 +17,16 @@
                     <i class="fas fa-eye"></i>
                 </div>
                 <div class="input">
-                    
+                    <i class="fas fa-map-marker"></i>
                     <input type="text" placeholder="عنوان المستشفي" formControlName="Location">
-                    
+
                 </div>
                 <div class="input">
-                    
-                    <input type="file"  multiple (change)="uploadFile($event)"  formControlName="Files">
-                    
+                    <i class="fas fa-upload"></i>
+                    <input type="file" multiple (change)="uploadFile($event)" formControlName="Files">
+
                 </div>
-               
+
                 <div class="button">
                     <button class="btn btn-colored">دخول</button>
                 </div>

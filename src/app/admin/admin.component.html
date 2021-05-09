@@ -1,0 +1,59 @@
+<!-- <table>
+    <thead>
+        <th>Index</th>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Gender</th>
+        <th>Birthday</th>
+        <th>Hello</th>
+    </thead>
+    <tbody *ngFor="let user of   hospitalsConfirm ; let i=index;">
+        <td>{{user.id}}</td>
+        <td>{{user.name}}</td>
+        <td>{{user.location}}</td>
+        <td>{{user.email}}</td>
+        <td>{{user.files[0].filePath}}</td>
+
+
+    </tbody>
+</table> -->
+
+<section>
+    <div class="container">
+        <div class="search input">
+            <i class="fas fa-search"></i>
+            <input type="search" name="searchInput" id="search-input" placeholder="search by anything .... " [(ngModel)]="searchText">
+        </div>
+        <div class="hospitals">
+            <div class="hospital" *ngFor="let hospital of hospitalsConfirm  |filter:searchText ; let i=index;">
+                <div class="name">
+                    <h4>{{hospital.name}}</h4>
+                </div>
+                <div class="data location">
+                    <i class="fas fa-map-marker"></i>
+                    <p>{{hospital.location}}</p>
+                </div>
+                <div class="data email">
+                    <i class="fas fa-envelope"></i>
+                    <p>{{hospital.email}}</p>
+                </div>
+                <div class="files">
+                    <div class="open-file" *ngFor="let file of hospital.files;let j = index">
+                        <button class="bttn" (click)="getFilePath(i,j)">
+                      <a [href]="'http://127.0.0.1:8887/'+ filePath" target="_blank">
+                        <i class="far fa-file"></i>
+                          File {{j+1}}
+                      </a>
+                    </button>
+                    </div>
+                </div>
+                <div class="cta">
+                    <button class="btn">Cancel</button>
+                    <button class="btn btn-colored">Accept</button>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</section>

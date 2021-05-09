@@ -1,3 +1,4 @@
+import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import  {FormBuilder, Validators, FormGroup }   from '@angular/forms'
 import {HttpClient , HttpHeaders}   from '@angular/common/http'
@@ -6,7 +7,7 @@ import {HttpClient , HttpHeaders}   from '@angular/common/http'
   providedIn: 'root'
 })
 export class HospitalService {
- 
+
   constructor(private fb: FormBuilder , private http:HttpClient) { }
   httpOptions = {
     headers: new HttpHeaders({
@@ -19,12 +20,15 @@ export class HospitalService {
 
 
     UploadHospital(body:any){
-      
-    return  this.http.post("https://localhost:44309/api/HospitalConfirmations", body);
+
+    return  this.http.post("https://localhost:5001/api/HospitalConfirmations", body);
+    }
+    getAllHospital():Observable<any>{
+      return this.http.get("https://localhost:5001/api/HospitalConfirmations");
     }
 
 
-   
+
 
 
 

@@ -1,0 +1,93 @@
+.search {
+    margin-top: 2rem;
+    border-radius: 0.5rem;
+    input {
+        width: 100%;
+    }
+    i {
+        font-size: 2rem;
+        margin-right: 2rem;
+    }
+}
+
+.hospitals {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    .hospital {
+        box-shadow: 0.5rem 0.5rem 0.5rem 0.5rem rgba( #000, 0.2);
+        padding: 1rem 2rem;
+        margin: 2rem 0;
+        border-radius: 0.5rem;
+        width: 24%;
+        .name {
+            // margin: -1rem -2rem;
+            text-align: center;
+            border: #0080F6 solid 0.3rem;
+        }
+        .data {
+            margin: 2rem 0;
+            display: flex;
+            align-items: center;
+            i {
+                margin-right: 1rem;
+                color: #0080F6;
+            }
+        }
+        .files {
+            display: flex;
+            .open-file {
+                &:not(:last-child) {
+                    margin-right: 1rem;
+                }
+                .bttn {
+                    border: none;
+                    outline: none;
+                    display: inline-block;
+                    // border-radius: 0.5rem;
+                    // width: 100%;
+                    margin-bottom: 0.5rem;
+                    a {
+                        text-decoration: none;
+                        color: #0080F6;
+                    }
+                }
+            }
+        }
+        .cta {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            .btn {
+                border-radius: 0.5rem;
+                &:not(:last-child) {
+                    margin-right: 0.5rem;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width:1000px) {
+    .hospitals {
+        .hospital {
+            width: 32%;
+        }
+    }
+}
+
+@media (max-width:750px) {
+    .hospitals {
+        .hospital {
+            width: 49%;
+        }
+    }
+}
+
+@media (max-width:550px) {
+    .hospitals {
+        .hospital {
+            width: 99%;
+        }
+    }
+}
