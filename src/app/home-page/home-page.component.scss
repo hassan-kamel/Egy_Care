@@ -1,62 +1,65 @@
-    .app-bar {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 10vh;
-        border-bottom: #0080F6 0.5rem solid;
-        // border-radius: 0 0 50% 50%;
-        background-color: #0080F6;
-        // box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+.home-page {
+    padding-top: 10rem;
+    .poss-logo {
         .header {
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
-            height: 10vh;
+            height: 30vh;
+            margin-bottom: 2rem;
             .logo {
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
                 img {
-                    height: 8vh;
+                    height: 25vh;
                 }
                 .egycare {
                     margin-left: 2rem;
                     h1 {
-                        font-size: 3rem;
+                        font-size: 7rem;
                         text-transform: capitalize;
-                        color: #F5F5F5;
+                        color: #0080F6;
+                        font-family: 'Diavlo';
+                        font-weight: 500;
+                        font-style: normal;
                     }
                 }
                 margin-right: 2rem;
             }
-            .links {
-                width: 70%;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                ul {
-                    width: 100%;
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
-                    list-style: none;
-                    li {
-                        color: #F5F5F5;
-                        cursor: pointer;
-                        display: flex;
-                        flex-direction: column;
-                        justify-content: center;
-                        align-items: center;
-                        &:hover {
-                            filter: contrast(200%);
-                        }
-                    }
+        }
+    }
+    .search {
+        direction: rtl;
+        max-width: 90rem;
+        margin: auto;
+        .input {
+            border: #0080F6 solid 1px;
+            font-size: 2rem;
+            filter: none;
+            border-radius: 5rem;
+            outline: none;
+            a {
+                background-color: #0080F6;
+                font-size: 2rem;
+                cursor: pointer;
+                padding: 0.001rem 1rem;
+                border-radius: 0.5rem;
+                transition: all 0.3s ease;
+                text-decoration: none;
+                color: #F5F5F5;
+                &:hover {
+                    transform: scale(1.2);
+                }
+                span {
+                    margin-left: 1rem;
+                }
+                i {
+                    color: #F5F5F5;
                 }
             }
         }
     }
-
     .main {
         margin-top: 20vh;
         .cards {
@@ -85,5 +88,74 @@
             }
         }
     }
-
     @media (max-width:900px) {}
+}
+
+.control {
+    margin-top: 2rem;
+    ul {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+.add {
+    position: absolute;
+    bottom: unset;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    padding: 5rem 0;
+    .pop-up {
+        height: 130vh;
+        display: block;
+        .form {
+            margin-top: 10rem;
+            form {
+                .snigle-input-gender {
+                    display: flex;
+                    flex-wrap: wrap;
+                    flex-direction: row;
+                    label {
+                        width: 100%;
+                    }
+                    .gender {
+                        width: 30%;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        // background-color: #0080F6;
+                        // color: #F5F5F5;
+                        margin: 1rem;
+                        padding: 0.5rem 1rem;
+                        border-radius: 0.5rem;
+                        label {}
+                        input {
+                            outline: none;
+                            border: 0;
+                            padding: 0.3rem 0.5rem;
+                            border-radius: 0.5rem;
+                            font-size: 1.5rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.medical {
+    .pop-up {
+        height: 80vh !important;
+    }
+}
+
+@media (max-width:600px) {
+    .add {
+        .pop-up {
+            height: 200vh;
+        }
+    }
+}

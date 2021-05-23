@@ -1,0 +1,31 @@
+<div class="scroll">
+
+    <div @fade class="tests section" *ngFor="let test of mData;let i=index;">
+        <div class="banner"></div>
+        <div class="m-data">
+            <div class="single-data">
+                <span> إسم التحليل   </span>
+                <span>{{test.name}}</span>
+            </div>
+            <div class="single-data">
+                <span>  التاريخ  </span>
+                <span>{{test.date | date :'short'}}</span>
+            </div>
+        </div>
+        <div class="control">
+            <div class="container">
+                <ul>
+                    <li (click)='delete(test.id)'>
+                        <i class="fas fa-trash"></i>
+                        <span> حذف  </span>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="patient-err" *ngIf="error">
+        <p> لا يوجد</p>
+    </div>

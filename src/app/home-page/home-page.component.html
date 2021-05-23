@@ -1,62 +1,152 @@
-<div class="app-bar">
-    <div class="container">
-        <div class="header">
-            <div class="logo">
-                <img src="../../assets/images/logo2bg.svg" alt="medical care">
-                <div class="egycare">
-                    <h1>egycare</h1>
-                </div>
-            </div>
-
+<div class="home-page">
+    <div class="app-bar">
+        <div class="container">
             <div class="links">
                 <ul>
-                    <li>
-                        <!-- <i class="fas fa-user"></i> -->
-                        <h2>الملف</h2>
-                    </li>
-                    <li>
-                        <!-- <i class="fas fa-hand-holding-medical"></i> -->
-                        <h2>التبرع</h2>
-                    </li>
-                    <li>
-                        <!-- <i class="fas fa-qrcode"></i> -->
-                        <h2>Qr Code</h2>
-                    </li>
-                    <li>
-                        <!-- <i class="fas fa-hospital-alt"></i> -->
-                        <h2>مستشفيات</h2>
-                    </li>
-                    <li>
-                        <!-- <i class="fas fa-file-medical"></i> -->
-                        <h2>السجل الطبي</h2>
-                    </li>
-
+                    <li><a routerLink="/login"> خروج</a></li>
+                    <li>اسم المستشفي</li>
                 </ul>
             </div>
         </div>
-
     </div>
-</div>
-
-<div class="main">
-    <div class="container">
-        <div class="cards">
-            <div class="card">
-                <img src="../../assets/images/diseases.svg" alt="diseases">
-                <h3>الامراض</h3>
-            </div>
-            <div class="card">
-                <img src="../../assets/images/surgury.svg" alt="diseases">
-                <h3>االعمليات الجراحيه</h3>
-            </div>
-            <div class="card">
-                <img src="../../assets/images/tests.svg" alt="diseases">
-                <h3>نتائج التحاليل الطبية</h3>
-            </div>
-            <div class="card">
-                <img src="../../assets/images/medicences.svg" alt="diseases">
-                <h3>الادوية</h3>
+    <div class="poss-logo">
+        <div class="container">
+            <div class="header">
+                <div class="logo">
+                    <img src="../../assets/images/logo2bg.png" alt="medical care">
+                    <div class="egycare">
+                        <h1>egycare</h1>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+    <div class="search">
+        <div class="container">
+            <div class="input">
+                <input type="number" placeholder="ابحث عن طريق الرقم القومي ........" [(ngModel)]="ssn" (keyup)='patientSearch(ssn)'>
+                <a *ngIf='ssn' [routerLink]="'/patient/' + ssn">
+                    <span>بحث</span>
+                    <i class="fas fa-search "></i>
+                </a>
+
+            </div>
+        </div>
+
+
+        <div class="control">
+            <div class="container">
+                <ul>
+                    <li (click)='add()'>
+                        <span> اضافة مريض جديد  </span>
+                        <i class="fas fa-plus"></i>
+                    </li>
+                    <!-- <li (click)='addBloodType()'>
+                <span> اضافة مريض جديد  </span>
+                <i class="fas fa-plus"></i>
+            </li> -->
+                </ul>
+            </div>
+        </div>
+        <div class="add rtl" *ngIf="addClicked && !addMedical">
+            <div class="pop-up">
+                <div class="close">
+                    <i class="fas fa-times" (click)='desAdd()'></i>
+                </div>
+                <div class="container">
+                    <div class="form">
+                        <form action="" [formGroup]='patientForm' (ngSubmit)='submitForm(patientForm)'>
+                            <div class="snigle-input">
+                                <label for="">اسم المريض</label>
+                                <input formControlName='fullName' type="text">
+                            </div>
+                            <div class="snigle-input">
+                                <label for=""> تاريخ الميلاد</label>
+                                <input formControlName='dateOfBirth' type="date">
+                            </div>
+                            <div class="snigle-input">
+                                <label for=""> الرقم القومي</label>
+                                <input formControlName='patientSSN' type="number">
+                            </div>
+                            <div class="snigle-input">
+                                <label for=""> رقم الموبايل</label>
+                                <input formControlName='phoneNumber' type="number">
+                            </div>
+                            <div class="snigle-input">
+                                <label for=""> الرقم السري</label>
+                                <input formControlName='password' type="password">
+                            </div>
+                            <div class="snigle-input-gender snigle-input ">
+                                <label for=""> النوع</label>
+                                <div class="gender">
+                                    <label for="male">ذكر</label>
+                                    <input formControlName='gender' type="radio" value="male" id="male">
+                                </div>
+                                <div class="gender">
+                                    <label for="male">انثي</label>
+                                    <input formControlName='gender' type="radio" value="female" id="female">
+                                </div>
+                            </div>
+                            <div class="snigle-input">
+                                <label for=""> المدينة</label>
+                                <input formControlName='city' type="text">
+                            </div>
+                            <div class="snigle-input o-0">
+                                <label for=""> المدينة</label>
+                                <input type="text">
+                            </div>
+                            <div class="snigle-input">
+                                <label for="">اسم القريب الاول</label>
+                                <input formControlName='relativeOneName' type="text">
+                            </div>
+                            <div class="snigle-input">
+                                <label for="">رقمه</label>
+                                <input formControlName='relativeOnePhoneNumber' type="number">
+                            </div>
+                            <div class="snigle-input">
+                                <label for="">اسم القريب الثاني</label>
+                                <input formControlName='relativeTwoName' type="text">
+                            </div>
+                            <div class="snigle-input">
+                                <label for="">رقمه</label>
+                                <input formControlName='relativeTwoPhoneNumber' type="number">
+                            </div>
+
+                            <div class="button">
+                                <button class="btn btn-colored">حفظ</button>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="add rtl medical" *ngIf=" addMedical">
+            <div class="pop-up">
+                <div class="close">
+                    <i class="fas fa-times" (click)='desAddMedical()'></i>
+                </div>
+                <div class="container">
+                    <div class="form">
+                        <form action="" [formGroup]='medicalForm' (ngSubmit)='submitMedical(medicalForm)'>
+
+                            <div class="snigle-input">
+                                <label for="">فصيلة الدم </label>
+                                <input formControlName='bloodType' type="text">
+                            </div>
+                            <div class="snigle-input o-0">
+                                <label for="">رقمه</label>
+                                <input type="number">
+                            </div>
+
+                            <div class="button">
+                                <button class="btn btn-colored">حفظ</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>

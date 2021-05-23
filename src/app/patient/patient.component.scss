@@ -1,0 +1,168 @@
+.header {
+    .app-bar {
+        height: 15vh;
+        z-index: -1;
+        display: block;
+    }
+}
+
+.patient {
+    margin-top: 7rem;
+    .patient-data {
+        transition: all 5s ease;
+        background-color: #fff;
+        border-radius: 3rem;
+        padding: 1rem 2rem;
+        box-shadow: 0.5px 0.5px 5px rgba(0, 0, 0, 0.5);
+        overflow: hidden;
+        nav {
+            direction: rtl;
+            margin-bottom: 2rem;
+            position: relative;
+            // z-index: 9;
+            &::after {
+                content: '';
+                display: block;
+                background-color: rgba(0, 128, 246, 0.3);
+                width: 108%;
+                height: 0.2rem;
+                position: absolute;
+                left: -4%;
+                bottom: -25%;
+            }
+            .links {
+                ul {
+                    list-style: none;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    li {
+                        text-align: center;
+                        cursor: pointer;
+                        position: relative;
+                        font-weight: 700;
+                        transition: all 0.2s ease;
+                        color: rgba(128, 128, 128, 0.8);
+                        width: calc(100%/6);
+                        &:hover {
+                            filter: opacity(70%);
+                        }
+                        // img {
+                        //     width: 20%;
+                        //     margin-left: 2rem;
+                        // }
+                        i {
+                            font-weight: 700;
+                            margin-left: 1rem;
+                            // font-size: 2rem;
+                        }
+                    }
+                }
+            }
+        }
+        .data {
+            // height: 70vh;
+            margin-top: 3rem;
+            // overflow-y: scroll;
+            // scroll-behavior: smooth;
+            padding: 1rem;
+        }
+    }
+}
+
+@media (max-width:670px) {
+    .patient {
+        .patient-data {
+            nav {
+                .links {
+                    li {
+                        span {
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width:900px) {
+    .patient {
+        .patient-data {
+            nav {
+                .links {
+                    li {
+                        span {
+                            font-size: 1.3rem;
+                        }
+                        i {
+                            font-size: 1.5rem;
+                            margin: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.patient-err {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    .control {
+        width: 100%;
+        ul {
+            // background-color: red
+            display: flex;
+            justify-content: center;
+        }
+    }
+}
+
+.add {
+    position: absolute;
+    bottom: unset;
+    height: 200%;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    padding-top: 10rem;
+    .pop-up {
+        height: auto;
+        display: block;
+        .form {
+            margin-top: 10rem;
+            form {
+                .snigle-input-gender {
+                    display: flex;
+                    flex-wrap: wrap;
+                    flex-direction: row;
+                    label {
+                        width: 100%;
+                    }
+                    .gender {
+                        width: 30%;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        // background-color: #0080F6;
+                        // color: #F5F5F5;
+                        margin: 1rem;
+                        padding: 0.5rem 1rem;
+                        border-radius: 0.5rem;
+                        label {}
+                        input {
+                            outline: none;
+                            border: 0;
+                            padding: 0.3rem 0.5rem;
+                            border-radius: 0.5rem;
+                            font-size: 1.5rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

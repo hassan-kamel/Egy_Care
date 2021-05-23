@@ -1,0 +1,49 @@
+<div @fade class="person">
+    <div class="container">
+        <div class="personal section">
+            <!-- <h3>البيانات الشخصية</h3> -->
+            <div class="p-data">
+                <div class="single-data">
+                    <span>الإسم  </span>
+                    <span>{{pData?.fullName}}</span>
+                </div>
+                <div class="single-data">
+                    <span>الرقم القومي  </span>
+                    <span>{{pSsn}}</span>
+                </div>
+                <div class="single-data">
+                    <span> العمر  </span>
+                    <span>{{pAge}}</span>
+                </div>
+                <div class="single-data">
+                    <span>المدينه  </span>
+                    <span>{{pData?.city}}</span>
+                </div>
+                <div class="single-data">
+                    <span>النوع  </span>
+                    <span>{{pData?.gender}}</span>
+                </div>
+                <div class="single-data">
+                    <span>رقم الموبايل  </span>
+                    <span>{{pData?.phoneNumber}}</span>
+                </div>
+                <div class="single-data">
+                    <span>اسم القريب الاول  </span>
+                    <span>{{pData?.realtiveOneName}}</span>
+                </div>
+                <div class="single-data">
+                    <span>رقمه  </span>
+                    <span>{{pData?.realtiveOnePhone}}</span>
+                </div>
+                <div class="single-data">
+                    <span>اسم القريب الثاني  </span>
+                    <span>{{pData?.realtiveTwoName}}</span>
+                </div>
+                <div class="single-data">
+                    <span>رقمه  </span>
+                    <span>{{pData?.realtiveTwoPhone}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

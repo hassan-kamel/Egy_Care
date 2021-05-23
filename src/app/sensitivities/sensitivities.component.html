@@ -1,0 +1,66 @@
+<div class="control">
+    <div class="container">
+        <ul>
+            <li (click)='add()'>
+                <span> اضافة حساسية </span>
+                <i class="fas fa-plus"></i>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="add rtl" *ngIf="addClicked">
+    <div class="pop-up">
+        <div class="close">
+            <img src="../../assets/icons/close_white_27x27.png" alt="close" (click)='desAdd()'>
+        </div>
+        <div class="header">
+            <h3>اضافة حساسية</h3>
+        </div>
+        <div class="container">
+            <div class="form">
+                <form action="" [formGroup]='disForm' (ngSubmit)='submitForm(disForm)'>
+                    <div class="snigle-input">
+                        <label for="">اسم الحساسية</label>
+                        <input formControlName='name' type="text">
+                    </div>
+                    <div class="snigle-input o-0">
+                        <label for=""> التعليمات</label>
+                        <input>
+                    </div>
+
+                    <div class="button">
+                        <button class="btn btn-colored">حفظ</button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="scroll">
+
+    <div @fade class="sensitivities section" *ngFor="let sins of mData;let i=index;">
+        <div class="banner"></div>
+        <div class="m-data">
+            <div class="single-data">
+                <span> إسم الحساسية  </span>
+                <span>{{sins.name}}</span>
+            </div>
+        </div>
+        <div class="control">
+            <div class="container">
+                <ul>
+                    <li (click)='delete(sins.id)'>
+                        <i class="fas fa-trash"></i>
+                        <span> حذف  </span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="patient-err" *ngIf="error">
+    <p> لا يوجد</p>
+</div>

@@ -1,0 +1,13 @@
+@font-face {
+    font-family: 'Diavlo';
+    src: url('DiavloMedium-Regular.eot');
+    src: url('DiavloMedium-Regular.eot?#iefix') format('embedded-opentype'),
+        url('DiavloMedium-Regular.woff2') format('woff2'),
+        url('DiavloMedium-Regular.woff') format('woff'),
+        url('DiavloMedium-Regular.ttf') format('truetype'),
+        url('DiavloMedium-Regular.svg#DiavloMedium-Regular') format('svg');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
