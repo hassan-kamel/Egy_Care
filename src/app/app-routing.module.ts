@@ -15,26 +15,33 @@ import { LogInComponent } from './log-in/log-in.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { AdminGuard } from './guards/admin.guard';
 import { ForbideenComponent } from './forbideen/forbideen.component';
+import { HomeSearchComponent } from './home-search/home-search.component';
+import { DonationComponent } from './donation/donation.component';
 
 const routes: Routes = [
   {path:'',redirectTo:'landing',pathMatch:"full"},
-  {path:'admin',component:AdminComponent , canActivate:[AdminGuard]},
-  {path:'home/:id',component:HomePageComponent, canActivate:[AuthGuard]},
+  {path:'admin',component:AdminComponent },
+  {path:'home/:id',component:HomePageComponent,
+    children:[
+      {path:'',redirectTo:'search',pathMatch:"full"},
+      {path:'search',component:HomeSearchComponent},
+      {path:'donation',component:DonationComponent},
+      {path:'patient/:ssn',component:PatientComponent,
+            children:[
+              {path:'',redirectTo:'personal',pathMatch:"full"},
+              {path:'personal',component:PersonalComponent},
+              {path:'medicines',component:MedicinesComponent},
+              {path:'diseases',component:DiseasesComponent},
+              {path:'operations',component:OperationsComponent},
+              {path:'sensitivities',component:SensitivitiesComponent},
+              {path:'tests',component:TestsComponent},
+              {path:'**',redirectTo:'personal',pathMatch:"full"}
+                  ], canActivate:[AuthGuard]},
+            ], canActivate:[AuthGuard]},
   {path:'landing',component:LandingPageComponent},
   {path:'signup',component:SignUpComponent},
   {path:'login',component:LogInComponent},
   {path:'forbideen',component:ForbideenComponent},
-  {path:'patient/:ssn',component:PatientComponent,
-  children:[
-    {path:'',redirectTo:'personal',pathMatch:"full"},
-    {path:'personal',component:PersonalComponent},
-    {path:'medicines',component:MedicinesComponent},
-    {path:'diseases',component:DiseasesComponent},
-    {path:'operations',component:OperationsComponent},
-    {path:'sensitivities',component:SensitivitiesComponent},
-    {path:'tests',component:TestsComponent},
-    {path:'**',redirectTo:'personal',pathMatch:"full"}
-  ], canActivate:[AuthGuard]},
   {path:'**',redirectTo:'landing',pathMatch:"full"}
 ];
 

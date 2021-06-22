@@ -88,5 +88,9 @@
 </div>
 
 <div class="patient-err" *ngIf="error">
+    <p> يجب اضافة فصيلة الدم لتتمكن من اضافة دواء</p>
+</div>
+
+<div class="patient-err" *ngIf="!mData?.length  && !error">
     <p> لا يوجد</p>
 </div>

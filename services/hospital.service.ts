@@ -16,64 +16,55 @@ export class HospitalService {
     })
   };
 
+  base='http://mohamednabiil-001-site1.ctempurl.com';
 
 
     ///////////////// Admin   ////////////////
 
     UploadHospital(body:any){
 
-    return  this.http.post("https://localhost:5001/api/HospitalConfirmations", body);
+    return  this.http.post(`${this.base}/api/HospitalConfirmations`, body);
     }
     getAllHospital():Observable<any>{
-      return this.http.get("https://localhost:5001/api/HospitalConfirmations");
+      return this.http.get(`${this.base}/api/HospitalConfirmations`);
     }
-
-
     RegisterHospital(body:any){
-
-      return this.http.post("https://localhost:5001/api/ApplicationUser/posthospital" , body);
-
+      return this.http.post(`${this.base}/api/ApplicationUser/posthospital` , body);
     }
-
-   LoginHospital(body:any){
-     return this.http.post("https://localhost:5001/api/ApplicationUser/LoginHospital", body)
-   }
-
-  getAcceptecdHospital(id:any){
-   return this.http.get("https://localhost:5001/api/HospitalConfirmations/"+id)
-
-  }
-
-   CancelHospital(id:any){
-
-    return  this.http.delete("https://localhost:5001/api/HospitalConfirmations/"+id);
-   }
-   GetHospitalData(id:any){
-   return  this.http.get("https://localhost:5001/api/Hospital/getHospitalById/"+id)
-
-   }
+    LoginHospital(body:any){
+      return this.http.post(`${this.base}/api/ApplicationUser/LoginHospital`, body)
+    }
+    getAcceptecdHospital(id:any){
+    return this.http.get(`${this.base}/api/HospitalConfirmations/`+id)
+    }
+    CancelHospital(id:any){
+      return  this.http.delete(`${this.base}/api/HospitalConfirmations/`+id);
+    }
+    GetHospitalData(id:any){
+    return  this.http.get(`${this.base}/api/Hospital/getHospitalById/`+id)
+    }
 
 
     ///////////////// Hospital Get  ////////////////
 
     getPatientBySsn(ssn:any):Observable<any>{
-      return this.http.get(`https://localhost:5001/api/PatientProfile/getPatientBySSN/${ssn}`);
+      return this.http.get(`${this.base}/api/PatientProfile/getPatientBySSN/${ssn}`);
     }
     getMedById(id:any):Observable<any>{
-      return this.http.get(`https://localhost:5001/api/MedicalHistories/GetMedicalHistory/${id}`);
+      return this.http.get(`${this.base}/api/MedicalHistories/GetMedicalHistory/${id}`);
     }
     ///////////////// Hospital Post  ////////////////
     addNewMedicine(body:any , id:any){
-      return this.http.post(`https://localhost:5001/api/Medicines/PostMedicine/${id}`, body)
+      return this.http.post(`${this.base}/api/Medicines/PostMedicine/${id}`, body)
     }
     addNewDisease(body:any , id:any){
-      return this.http.post(`https://localhost:5001/api/Diseases/PostDisease/${id}`, body)
+      return this.http.post(`${this.base}/api/Diseases/PostDisease/${id}`, body)
     }
     addNewOperation(body:any , id:any){
-      return this.http.post(`https://localhost:5001/api/Operations/PostOperation/${id}`, body)
+      return this.http.post(`${this.base}/api/Operations/PostOperation/${id}`, body)
     }
     addNewSensitivitie(body:any , id:any){
-      return this.http.post(`https://localhost:5001/api/Sensitivities/PostSensitivity/${id}`, body)
+      return this.http.post(`${this.base}/api/Sensitivities/PostSensitivity/${id}`, body)
 
     }
 
@@ -85,26 +76,26 @@ export class HospitalService {
      *
      */
     addNewPatient(body:any ){
-      return this.http.post(`https://localhost:5001/api/ApplicationUser/postUser`, body)
+      return this.http.post(`${this.base}/api/ApplicationUser/postUser`, body)
     }
     addMedData(body:any , id:any){
-      return this.http.post(`https://localhost:5001/api/MedicalHistories/PostMedicalHistory/${id}`, body)
+      return this.http.post(`${this.base}/api/MedicalHistories/PostMedicalHistory/${id}`, body)
     }
     ///////////////// Hospital delete  ////////////////
     deleteMedicine( id:any){
-      return this.http.delete(`https://localhost:5001/api/Medicines/DeleteMedicine/${id}`)
+      return this.http.delete(`${this.base}/api/Medicines/DeleteMedicine/${id}`)
     }
     deleteDisease( id:any){
-      return this.http.delete(`https://localhost:5001/api/Diseases/DeleteDisease/${id}`)
+      return this.http.delete(`${this.base}/api/Diseases/DeleteDisease/${id}`)
     }
     deleteOperation( id:any){
-      return this.http.delete(`https://localhost:5001/api/Operations/DeleteOperation/${id}`)
+      return this.http.delete(`${this.base}/api/Operations/DeleteOperation/${id}`)
     }
     deleteSensitivity( id:any){
-      return this.http.delete(`https://localhost:5001/api/Sensitivities/DeleteSensitivity/${id}`)
+      return this.http.delete(`${this.base}/api/Sensitivities/DeleteSensitivity/${id}`)
     }
     deleteTest( id:any){
-      return this.http.delete(`https://localhost:5001/api/Tests/DeleteTest/${id}`)
+      return this.http.delete(`${this.base}/api/Tests/DeleteTest/${id}`)
     }
 
 

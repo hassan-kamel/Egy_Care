@@ -1,0 +1,140 @@
+<div class="poss-logo">
+    <div class="container">
+        <div class="header">
+            <div class="logo">
+                <img src="../../assets/images/logo2bg.png" alt="medical care">
+                <div class="egycare">
+                    <h1>egycare</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="search">
+    <div class="container">
+        <div class="input">
+            <input type="number" placeholder="ابحث بواسطة الرقم القومي" [(ngModel)]="ssn" (keyup)='patientSearch($event)'>
+            <a *ngIf='ssn' (click)="navigate()">
+                <span>بحث</span>
+                <i class="fas fa-search "></i>
+            </a>
+
+        </div>
+    </div>
+    <!-- <div class="patient-err" *ngIf="searchErr && ssn">
+      <p>هذا المريض <span></span> ليس لديه اي بيانات </p>
+
+  </div> -->
+
+
+
+
+    <!-- <div class="add rtl" *ngIf="addClicked && !addMedical">
+      <div class="pop-up">
+          <div class="pop-up-bar">
+              <div class="close">
+                  <div class="img">
+                      <img src="../../assets/icons/close.svg" alt="close" (click)='desAdd()'>
+                  </div>
+              </div>
+              <div class="header">
+                  <h3>اضافة مريض</h3>
+              </div>
+          </div>
+          <div class="center">
+              <div class="form">
+                  <form action="" [formGroup]='patientForm' (ngSubmit)='submitForm(patientForm)'>
+                      <div class="inputs">
+                          <div class="snigle-input">
+                              <label for="">اسم المريض</label>
+                              <input formControlName='fullName' type="text">
+                          </div>
+                          <div class="snigle-input">
+                              <label for=""> تاريخ الميلاد</label>
+                              <input formControlName='dateOfBirth' type="date">
+                          </div>
+                          <div class="snigle-input">
+                              <label for=""> الرقم القومي</label>
+                              <input formControlName='patientSSN' type="number">
+                          </div>
+                          <div class="snigle-input">
+                              <label for=""> رقم الموبايل</label>
+                              <input formControlName='phoneNumber' type="number">
+                          </div>
+                          <div class="snigle-input">
+                              <label for=""> الرقم السري</label>
+                              <input formControlName='password' type="password">
+                          </div>
+                          <div class="snigle-input-gender snigle-input ">
+                              <label for=""> النوع</label>
+                              <div class="gender">
+                                  <label for="male">ذكر</label>
+                                  <input formControlName='gender' type="radio" value="male" id="male">
+                              </div>
+                              <div class="gender">
+                                  <label for="male">انثي</label>
+                                  <input formControlName='gender' type="radio" value="female" id="female">
+                              </div>
+                          </div>
+                          <div class="snigle-input">
+                              <label for=""> المدينة</label>
+                              <input formControlName='city' type="text">
+                          </div>
+
+                          <div class="snigle-input">
+                              <label for="">اسم القريب الاول</label>
+                              <input formControlName='relativeOneName' type="text">
+                          </div>
+                          <div class="snigle-input">
+                              <label for="">رقمه</label>
+                              <input formControlName='relativeOnePhoneNumber' type="number">
+                          </div>
+                          <div class="snigle-input">
+                              <label for="">اسم القريب الثاني</label>
+                              <input formControlName='relativeTwoName' type="text">
+                          </div>
+                          <div class="snigle-input">
+                              <label for="">رقمه</label>
+                              <input formControlName='relativeTwoPhoneNumber' type="number">
+                          </div>
+                      </div>
+                      <div class="button">
+                          <button class="btn btn-colored">حفظ</button>
+                      </div>
+                  </form>
+
+              </div>
+          </div>
+      </div>
+  </div>
+  <div class="add rtl medical" *ngIf="addMedical">
+      <div class="pop-up">
+          <div class="pop-up-bar">
+              <div class="close">
+                  <div class="img">
+                      <img src="../../assets/icons/close.svg" alt="close" (click)='desAddMedical()'>
+                  </div>
+              </div>
+              <div class="header">
+                  <h3>اضافة فصيلة الدم</h3>
+              </div>
+          </div>
+          <div class="center">
+              <div class="form">
+                  <form action="" [formGroup]='medicalForm' (ngSubmit)='submitMedical(medicalForm)'>
+                      <div class="inputs">
+                          <div class="snigle-input">
+                              <label for="">فصيلة الدم </label>
+                              <input formControlName='bloodType' type="text">
+                          </div>
+                      </div>
+                      <div class="button">
+                          <button class="btn btn-colored">حفظ</button>
+                      </div>
+                  </form>
+
+              </div>
+          </div>
+      </div>
+  </div> -->
+</div>

@@ -24,6 +24,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { JwtModule } from "@auth0/angular-jwt";
 import { ForbideenComponent } from './forbideen/forbideen.component';
 import { ShowHidePasswordModule } from 'ngx-show-hide-password';
+import { HomeSearchComponent } from './home-search/home-search.component';
+import { DonationComponent } from './donation/donation.component';
 export function tokenGetter() {
 return localStorage.getItem("token");
 }
@@ -43,6 +45,8 @@ return localStorage.getItem("token");
     TestsComponent,
     PersonalComponent,
     ForbideenComponent,
+    HomeSearchComponent,
+    DonationComponent,
 
 
   ],

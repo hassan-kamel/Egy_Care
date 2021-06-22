@@ -22,6 +22,7 @@ export class DiseasesComponent implements OnInit {
       _hospitalService.getMedById(res.id).subscribe((res)=>{
         // console.log(res.diseases);
         this.mData=res.diseases;
+        console.log(this.mData)
       },
       (err)=>{
         // console.log(err);

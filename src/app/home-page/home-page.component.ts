@@ -10,10 +10,13 @@ import { HospitalService } from 'services/hospital.service';
   styleUrls: ['./home-page.component.scss']
 })
 export class HomePageComponent implements OnInit {
+  hospitalID: any;
 
 
 
   constructor(public _AuthService:AuthService , public _Router:Router ,public _activatedRoute:ActivatedRoute,public _hospitalService:HospitalService, public _router:Router ) {
+
+    this.hospitalID= this._Router.url.slice(6,7);
 
     this._activatedRoute.paramMap.subscribe((params:ParamMap)=>{
       this._hospitalService.GetHospitalData(params.get('id'))
@@ -95,8 +98,8 @@ export class HomePageComponent implements OnInit {
         this._router.routeReuseStrategy.shouldReuseRoute = () => false;
         this._router.onSameUrlNavigation = 'reload';
         // console.log(currentUrl);
-        this._router.navigate([`/patient/${this.addedSsn}/personal`]);
-    },
+        this._router.navigateByUrl(`home/${this.hospitalID}/patient/${this.addedSsn}/personal`);
+      },
     (err)=>{
       console.log(err);
     });
@@ -116,7 +119,7 @@ export class HomePageComponent implements OnInit {
      this._router.routeReuseStrategy.shouldReuseRoute = () => false;
      this._router.onSameUrlNavigation = 'reload';
      // console.log(currentUrl);
-     this._router.navigate([`/patient/${this.ssn}/personal`]);
+     this._router.navigateByUrl(`home/${this.hospitalID}/patient/${this.addedSsn}/personal`);
     }
    }
 

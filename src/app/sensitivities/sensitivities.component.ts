@@ -20,8 +20,9 @@ export class SensitivitiesComponent implements OnInit {
       // console.log(res.id);
       this.id=res.id;
       _hospitalService.getMedById(res.id).subscribe((res)=>{
-        // console.log(res.sensitivities);
         this.mData=res.sensitivities;
+        console.log(this.mData.length);
+
       },
       (err)=>{
         // console.log(err);

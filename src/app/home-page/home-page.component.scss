@@ -1,5 +1,5 @@
 .home-page {
-    padding-top: 10rem;
+    // padding-top: 10rem;
     .app-bar {
         .links {
             ul {
@@ -16,6 +16,7 @@
                     // background-color: blue;
                     cursor: pointer;
                     li {
+                        cursor: pointer;
                         &:nth-child(1) {
                             background-color: transparent;
                             border-radius: 2rem;
@@ -29,6 +30,7 @@
                 li {
                     color: #0080F6;
                     &:nth-child(1) {
+                        cursor: pointer;
                         padding: 0.5rem 2rem;
                         background-color: #F0F2F5;
                         // flex: 1;

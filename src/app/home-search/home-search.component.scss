@@ -1,0 +1,67 @@
+.poss-logo {
+    margin-top: 10rem;
+    .header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 30vh;
+        margin-bottom: 2rem;
+        .logo {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            img {
+                height: 25vh;
+            }
+            .egycare {
+                margin-left: 2rem;
+                h1 {
+                    font-size: 7rem;
+                    text-transform: capitalize;
+                    color: #0080F6;
+                    font-family: 'Diavlo';
+                    font-weight: 500;
+                    font-style: normal;
+                }
+            }
+            margin-right: 2rem;
+        }
+    }
+}
+
+.search {
+    direction: rtl;
+    max-width: 90rem;
+    margin: auto;
+    .input {
+        border: #0080F6 solid 1px;
+        font-size: 2rem;
+        filter: none;
+        border-radius: 5rem;
+        outline: none;
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        a {
+            background-color: #0080F6;
+            font-size: 2rem;
+            cursor: pointer;
+            padding: 0.001rem 1rem;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: #F5F5F5;
+            &:hover {
+                transform: scale(1.2);
+            }
+            span {
+                margin-left: 1rem;
+            }
+            i {
+                color: #F5F5F5;
+            }
+        }
+    }
+}

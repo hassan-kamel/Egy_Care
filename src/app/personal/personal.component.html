@@ -1,3 +1,52 @@
+<div class="control">
+    <div class="container">
+        <ul>
+            <li (click)='add()' *ngIf="medErr">
+                <span> اضافة فصيلة الدم</span>
+                <i class="fas fa-plus"></i>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class="add rtl" *ngIf="addClicked">
+    <div class="pop-up">
+        <div class="pop-up-bar">
+            <div class="close" (click)='desAdd()'>
+                <div class="img">
+                    <img src="../../assets/icons/close.svg" alt="close">
+                </div>
+            </div>
+            <div class="header">
+                <h3>اضافة فصيلة الدم</h3>
+            </div>
+        </div>
+        <div class="center">
+            <div class="form">
+                <form action="" [formGroup]='bloodForm' (ngSubmit)='submitMedical(bloodForm)'>
+                    <div class="inputs">
+                        <div class="snigle-input">
+                            <label for=""> فصيلة الدم</label>
+                            <input formControlName='bloodType' type="text">
+                        </div>
+                        <div class="snigle-input o-0">
+                            <label for=""> سبب المرض</label>
+                            <textarea cols="" rows="1"></textarea>
+                        </div>
+                    </div>
+                    <div class="button">
+                        <button class="btn btn-colored">حفظ</button>
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
 <div @fade class="person">
     <div class="container">
         <div class="personal section">

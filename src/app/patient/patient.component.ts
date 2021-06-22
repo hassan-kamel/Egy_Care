@@ -20,9 +20,12 @@ export class PatientComponent implements OnInit {
   mData:any;
   addClicked:boolean=false;
   ssn:any;
+  hospitalID: any;
+  medErr:any;
 
 
 constructor(private _activatedRoute:ActivatedRoute,private _hospitalService:HospitalService,public _router:Router) {
+  this.hospitalID= this._router.url.slice(6,7);
     // console.log( _activatedRoute.snapshot.params.ssn);
     let ssn = _activatedRoute.snapshot.params.ssn;
     this.pSsn=ssn;
@@ -38,7 +41,8 @@ constructor(private _activatedRoute:ActivatedRoute,private _hospitalService:Hosp
 
         },
         (err)=>{
-          // console.log(err);
+          console.log(err);
+          this.medErr=err;
 
         }
         )
@@ -106,8 +110,8 @@ constructor(private _activatedRoute:ActivatedRoute,private _hospitalService:Hosp
     this._router.routeReuseStrategy.shouldReuseRoute = () => false;
     this._router.onSameUrlNavigation = 'reload';
     // console.log(currentUrl);
-    this._router.navigate([`/patient/${this.ssn}/personal`]);
-   }
+    this._router.navigateByUrl(`home/${this.hospitalID}/patient/${this.ssn}/personal`);
+  }
   }
   ngOnInit(): void {
   }
