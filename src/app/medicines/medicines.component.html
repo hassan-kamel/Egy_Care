@@ -10,32 +10,37 @@
 </div>
 <div class="add rtl" *ngIf="addClicked">
     <div class="pop-up">
-
-        <div class="close">
-            <img src="../../assets/icons/close_white_27x27.png" alt="close" (click)='desAdd()'>
+        <div class="pop-up-bar">
+            <div class="close" (click)='desAdd()'>
+                <div class="img">
+                    <img src="../../assets/icons/close.svg" alt="close">
+                </div>
+            </div>
+            <div class="header">
+                <h3>اضافة دواء</h3>
+            </div>
         </div>
-        <div class="header">
-            <h3>اضافة دواء</h3>
-        </div>
-        <div class="container">
+        <div class="center">
             <div class="form">
                 <form action="" [formGroup]='disForm' (ngSubmit)='submitForm(disForm)'>
-                    <div class="snigle-input">
-                        <label for="">اسم الدواء</label>
-                        <input formControlName='name' type="text">
-                    </div>
-                    <div class="snigle-input">
-                        <label for=""> التعليمات</label>
-                        <textarea formControlName='instructions' cols="" rows="1"></textarea>
-                    </div>
-                    <div class="snigle-input">
-                        <label for=""> بداية التعاطي</label>
-                        <input formControlName='startDate' type="date">
+                    <div class="inputs">
+                        <div class="snigle-input">
+                            <label for="">اسم الدواء</label>
+                            <input formControlName='name' type="text">
+                        </div>
+                        <div class="snigle-input">
+                            <label for=""> التعليمات</label>
+                            <textarea formControlName='instructions' cols="" rows="1"></textarea>
+                        </div>
+                        <div class="snigle-input">
+                            <label for=""> بداية التعاطي</label>
+                            <input formControlName='startDate' type="date">
 
-                    </div>
-                    <div class="snigle-input">
-                        <label for=""> نهاية التعاطي</label>
-                        <input formControlName='endDate' type="date">
+                        </div>
+                        <div class="snigle-input">
+                            <label for=""> نهاية التعاطي</label>
+                            <input formControlName='endDate' type="date">
+                        </div>
                     </div>
                     <div class="button">
                         <button class="btn btn-colored">حفظ</button>
@@ -70,18 +75,18 @@
             </div>
         </div>
         <div class="control">
-            <div class="container">
-                <ul>
-                    <li (click)='delete(med.id)'>
-                        <i class="fas fa-trash"></i>
-                        <span> حذف  </span>
-                    </li>
-                </ul>
-            </div>
-        </div>
 
+            <ul>
+                <li (click)='delete(med.id)'>
+                    <i class="fas fa-trash"></i>
+                    <span> حذف  </span>
+                </li>
+            </ul>
+        </div>
     </div>
+
 </div>
+
 <div class="patient-err" *ngIf="error">
     <p> لا يوجد</p>
 </div>

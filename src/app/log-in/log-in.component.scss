@@ -8,6 +8,13 @@
                 direction: rtl;
                 flex: 1;
                 form {
+                    .input:nth-child(2) {
+                        i {
+                            &:last-child {
+                                cursor: pointer;
+                            }
+                        }
+                    }
                     button {
                         width: 100%;
                         margin: 1rem 0;

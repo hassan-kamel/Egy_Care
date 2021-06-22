@@ -17,6 +17,13 @@
             justify-content: center;
             // align-items: stretch;
             flex-direction: column;
+            .input:nth-child(3) {
+                i {
+                    &:last-child {
+                        cursor: pointer;
+                    }
+                }
+            }
             .button {
                 button {
                     width: 100%;

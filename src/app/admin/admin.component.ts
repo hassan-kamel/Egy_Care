@@ -2,6 +2,7 @@ import { HospitalService } from './../../../services/hospital.service';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Observable, Observer } from 'rxjs';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -17,7 +18,7 @@ export class AdminComponent implements OnInit {
 
 
 
-  constructor(_hospitalService:HospitalService) {
+  constructor(public _hospitalService:HospitalService , public _router: Router) {
   _hospitalService.getAllHospital().subscribe(
     (response)=>{
       this.hospitalsConfirm=response;
@@ -49,6 +50,47 @@ export class AdminComponent implements OnInit {
     }
   }
 
+
+
+  hospitalData:any;
+  onAccept(id:any){
+  this._hospitalService.getAcceptecdHospital(id)
+  .subscribe((res: any)=>{
+   this.hospitalData = res;
+    let arr = [];
+    for(let  i = 0 ; i < this.hospitalData.files.length ; i++){
+     arr.push({filePath:this.hospitalData.files[i].filePath});
+    }
+    var hopspitalbody = {
+     name:this.hospitalData.name,
+     location:this.hospitalData.location,
+     email:this.hospitalData.email,
+     password:this.hospitalData.password,
+     files:arr,
+   }
+
+   this._hospitalService.RegisterHospital(hopspitalbody)
+   .subscribe((res: any)=>console.log("done added"));
+  });
+
+
+  this._hospitalService.CancelHospital(id)
+  .subscribe((res: any)=>{
+    console.log("done deleted");
+  })
+  this._router.navigate(['/admin']);
+}
+
+
+
+onCancel(id:any){
+
+ this._hospitalService.CancelHospital(id)
+ .subscribe((res: any)=>{
+   console.log("Hosptal delted");
+   this._router.navigate(['/admin']);
+ })
+}
 
 
   ngOnInit(): void {

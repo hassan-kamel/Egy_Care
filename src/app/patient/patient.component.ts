@@ -90,7 +90,25 @@ constructor(private _activatedRoute:ActivatedRoute,private _hospitalService:Hosp
       }
     )
   }
+  patientSearch(e:any){
+    // console.log(e);
+   if(e.keyCode==13){
+   this.navigate();
 
+   }
+
+}
+
+  navigate(){
+
+   if(this.ssn){
+    let currentUrl = this._router.url;
+    this._router.routeReuseStrategy.shouldReuseRoute = () => false;
+    this._router.onSameUrlNavigation = 'reload';
+    // console.log(currentUrl);
+    this._router.navigate([`/patient/${this.ssn}/personal`]);
+   }
+  }
   ngOnInit(): void {
   }
 

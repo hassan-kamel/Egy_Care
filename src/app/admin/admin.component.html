@@ -48,8 +48,8 @@
                     </div>
                 </div>
                 <div class="cta">
-                    <button class="btn">Cancel</button>
-                    <button class="btn btn-colored">Accept</button>
+                    <button (click)="onCancel(hospital.id)" class="btn">Cancel</button>
+                    <button (click)="onAccept(hospital.id)" class="btn btn-colored">Accept</button>
                 </div>
 
             </div>

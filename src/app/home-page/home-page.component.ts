@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, ParamMap, Router } from '@angular/router';
+import { AuthService } from 'services/auth.service';
 import { HospitalService } from 'services/hospital.service';
 
 @Component({
@@ -12,7 +13,18 @@ export class HomePageComponent implements OnInit {
 
 
 
-  constructor(public _activatedRoute:ActivatedRoute,public _hospitalService:HospitalService, public _router:Router ) { }
+  constructor(public _AuthService:AuthService , public _Router:Router ,public _activatedRoute:ActivatedRoute,public _hospitalService:HospitalService, public _router:Router ) {
+
+    this._activatedRoute.paramMap.subscribe((params:ParamMap)=>{
+      this._hospitalService.GetHospitalData(params.get('id'))
+      .subscribe(( res)=>{
+        this.hospitalData = res;
+        console.log(this.hospitalData);
+
+      })
+    });
+
+  }
 
   ssn:any;
   addClicked:boolean=false;
@@ -21,6 +33,9 @@ export class HomePageComponent implements OnInit {
   addMedical:boolean=false;
   patientID:any;
   addedSsn:any;
+  hospitalData:any;
+
+
   add(){
     this.addClicked=true;
   }
@@ -51,7 +66,7 @@ export class HomePageComponent implements OnInit {
 
   submitForm(myForm:FormGroup){
     console.log(myForm.value);
-this.addedSsn=myForm.value.patientSSN;
+    this.addedSsn=myForm.value.patientSSN;
     this._hospitalService.addNewPatient(myForm.value).subscribe(
       (res)=>{
         this._hospitalService.getPatientBySsn(myForm.value.patientSSN).subscribe((res)=>{
@@ -61,48 +76,72 @@ this.addedSsn=myForm.value.patientSSN;
         }
         ,
         (err)=>{
-          // console.log(err);
+          console.log(err);
 
         }
         );
-
-
-
       },
       (err)=>{
-        // console.log(err);
+        console.log(err);
       }
     )
   }
+
   submitMedical(myForm:FormGroup){
+    console.log(this.patientID);
     this._hospitalService.addMedData(myForm.value,this.patientID).subscribe((res)=>{
       // console.log(res);
-      let currentUrl = this._router.url;
+        let currentUrl = this._router.url;
         this._router.routeReuseStrategy.shouldReuseRoute = () => false;
         this._router.onSameUrlNavigation = 'reload';
         // console.log(currentUrl);
         this._router.navigate([`/patient/${this.addedSsn}/personal`]);
     },
     (err)=>{
-      // console.log(err);
+      console.log(err);
     });
   }
   patientSearch(e:any){
       // console.log(e);
-     if(e){
-      this._hospitalService.getPatientBySsn(e).subscribe((res)=>{
-        this.searchErr=false;
-      }
-      ,
-      (err)=>{
-        // console.log(err);
-        this.searchErr=err;
-      }
-      );
+     if(e.keyCode==13){
+     this.navigate();
+
      }
 
   }
-  ngOnInit(): void {
-  }
+  navigate(){
+
+    if(this.ssn){
+     let currentUrl = this._router.url;
+     this._router.routeReuseStrategy.shouldReuseRoute = () => false;
+     this._router.onSameUrlNavigation = 'reload';
+     // console.log(currentUrl);
+     this._router.navigate([`/patient/${this.ssn}/personal`]);
+    }
+   }
+
+   logout(){
+    this._AuthService.logout();
+    this._Router.navigate(['/login']);
+    }
+
+
+    ngOnInit(): void {
+      // this._activatedRoute.paramMap.subscribe((params:ParamMap)=>{
+      //  //this.Id = params.get('id');
+
+
+      //  this._hospitalService.GetHospitalData(params.get('id'))
+      //  .subscribe(( res)=>{
+      //    this.hospitalData = res;
+
+      //  })
+
+
+      // })
+
+
+
+       }
 
 }

@@ -28,6 +28,32 @@ export class HospitalService {
       return this.http.get("https://localhost:5001/api/HospitalConfirmations");
     }
 
+
+    RegisterHospital(body:any){
+
+      return this.http.post("https://localhost:5001/api/ApplicationUser/posthospital" , body);
+
+    }
+
+   LoginHospital(body:any){
+     return this.http.post("https://localhost:5001/api/ApplicationUser/LoginHospital", body)
+   }
+
+  getAcceptecdHospital(id:any){
+   return this.http.get("https://localhost:5001/api/HospitalConfirmations/"+id)
+
+  }
+
+   CancelHospital(id:any){
+
+    return  this.http.delete("https://localhost:5001/api/HospitalConfirmations/"+id);
+   }
+   GetHospitalData(id:any){
+   return  this.http.get("https://localhost:5001/api/Hospital/getHospitalById/"+id)
+
+   }
+
+
     ///////////////// Hospital Get  ////////////////
 
     getPatientBySsn(ssn:any):Observable<any>{

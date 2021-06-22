@@ -1,3 +1,4 @@
+import { AuthGuard } from './guards/auth.guard';
 import { TestsComponent } from './tests/tests.component';
 import { SensitivitiesComponent } from './sensitivities/sensitivities.component';
 import { OperationsComponent } from './operations/operations.component';
@@ -12,14 +13,17 @@ import { RouterModule, Routes } from '@angular/router';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { LogInComponent } from './log-in/log-in.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
+import { AdminGuard } from './guards/admin.guard';
+import { ForbideenComponent } from './forbideen/forbideen.component';
 
 const routes: Routes = [
   {path:'',redirectTo:'landing',pathMatch:"full"},
-  {path:'admin',component:AdminComponent},
-  {path:'home',component:HomePageComponent},
+  {path:'admin',component:AdminComponent , canActivate:[AdminGuard]},
+  {path:'home/:id',component:HomePageComponent, canActivate:[AuthGuard]},
   {path:'landing',component:LandingPageComponent},
   {path:'signup',component:SignUpComponent},
   {path:'login',component:LogInComponent},
+  {path:'forbideen',component:ForbideenComponent},
   {path:'patient/:ssn',component:PatientComponent,
   children:[
     {path:'',redirectTo:'personal',pathMatch:"full"},
@@ -30,7 +34,7 @@ const routes: Routes = [
     {path:'sensitivities',component:SensitivitiesComponent},
     {path:'tests',component:TestsComponent},
     {path:'**',redirectTo:'personal',pathMatch:"full"}
-  ]},
+  ], canActivate:[AuthGuard]},
   {path:'**',redirectTo:'landing',pathMatch:"full"}
 ];
 

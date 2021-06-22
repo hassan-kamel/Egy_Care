@@ -13,8 +13,8 @@
 
                 <div class="input">
                     <i class="fas fa-unlock-alt"></i>
-                    <input type="password" placeholder="الرقم السري" formControlName="Password">
-                    <i class="fas fa-eye"></i>
+                    <input id="mysecretpassword" type="password" placeholder="الرقم السري" formControlName="Password" showHideInput>
+                    <i class="fas fa-eye" showHideTrigger="mysecretpassword" (click)="toggleIcon($event)"></i>
                 </div>
                 <div class="input">
                     <i class="fas fa-map-marker"></i>

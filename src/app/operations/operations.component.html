@@ -10,30 +10,34 @@
 </div>
 <div class="add rtl" *ngIf="addClicked">
     <div class="pop-up">
-        <div class="close">
-            <img src="../../assets/icons/close_white_27x27.png" alt="close" (click)='desAdd()'>
+        <div class="pop-up-bar">
+            <div class="close" (click)='desAdd()'>
+                <div class="img">
+                    <img src="../../assets/icons/close.svg" alt="close">
+                </div>
+            </div>
+            <div class="header">
+                <h3>اضافة عمليه</h3>
+            </div>
         </div>
-        <div class="header">
-            <h3>اضافة عمليه</h3>
-        </div>
-        <div class="container">
+        <div class="center">
             <div class="form">
                 <form action="" [formGroup]='disForm' (ngSubmit)='submitForm(disForm)'>
-                    <div class="snigle-input">
-                        <label for="">اسم العمليه</label>
-                        <input formControlName='name' type="text">
-                    </div>
-                    <div class="snigle-input">
-                        <label for="">  النوع</label>
-                        <input formControlName='type' type="text">
-                    </div>
-                    <div class="snigle-input">
-                        <label for=""> التاريخ</label>
-                        <input formControlName='date' type="date">
-                    </div>
-                    <div class="snigle-input o-0">
-                        <label for=""> التاريخ</label>
-                        <textarea cols="" rows="1"></textarea>
+                    <div class="inputs">
+
+
+                        <div class="snigle-input">
+                            <label for="">اسم العمليه</label>
+                            <input formControlName='name' type="text">
+                        </div>
+                        <div class="snigle-input">
+                            <label for="">  النوع</label>
+                            <input formControlName='type' type="text">
+                        </div>
+                        <div class="snigle-input">
+                            <label for=""> التاريخ</label>
+                            <input formControlName='date' type="date">
+                        </div>
                     </div>
 
 
@@ -66,15 +70,15 @@
             </div>
         </div>
         <div class="control">
-            <div class="container">
-                <ul>
-                    <li (click)='delete(op.id)'>
-                        <i class="fas fa-trash"></i>
-                        <span> حذف  </span>
-                    </li>
-                </ul>
-            </div>
+
+            <ul>
+                <li (click)='delete(op.id)'>
+                    <i class="fas fa-trash"></i>
+                    <span> حذف  </span>
+                </li>
+            </ul>
         </div>
+
     </div>
 
 </div>

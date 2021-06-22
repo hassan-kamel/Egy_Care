@@ -18,9 +18,15 @@ import { SensitivitiesComponent } from './sensitivities/sensitivities.component'
 import { TestsComponent } from './tests/tests.component';
 import { PersonalComponent } from './personal/personal.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+// import { ForbideenComponent } from './forbideen/forbideen.component';
 // import {MatDatepickerModule} from '@angular/material/datepicker';
 // import { MatNativeDateModule } from '@angular/material/core';
-
+import { JwtModule } from "@auth0/angular-jwt";
+import { ForbideenComponent } from './forbideen/forbideen.component';
+import { ShowHidePasswordModule } from 'ngx-show-hide-password';
+export function tokenGetter() {
+return localStorage.getItem("token");
+}
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,6 +42,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     SensitivitiesComponent,
     TestsComponent,
     PersonalComponent,
+    ForbideenComponent,
+
 
   ],
   imports: [
@@ -45,7 +53,17 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HttpClientModule,
     Ng2SearchPipeModule,
     FormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ShowHidePasswordModule,
+
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: tokenGetter,
+        allowedDomains: ['localhost:5001'],
+        disallowedRoutes:[]
+
+      }
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
