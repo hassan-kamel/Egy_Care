@@ -1,7 +1,7 @@
 <div class="control">
     <div class="container">
         <ul>
-            <li (click)='add()'>
+            <li (click)='add()' *ngIf="!mData?.length && !error">
                 <span> اضافة مرض </span>
                 <i class="fas fa-plus"></i>
             </li>
