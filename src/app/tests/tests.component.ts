@@ -13,6 +13,7 @@ export class TestsComponent implements OnInit {
 
   error:any;
   mData:any;
+  addClicked: any;
   constructor(public _activatedRoute:ActivatedRoute,public _hospitalService:HospitalService,public _router:Router) {
     let ssn=this._activatedRoute.snapshot.parent?.params.ssn;
     // console.log(ssn);
@@ -46,6 +47,14 @@ export class TestsComponent implements OnInit {
     })
   }
   ngOnInit(): void {
+  }
+
+
+  add(){
+    this.addClicked=true;
+  }
+  desAdd(){
+    this.addClicked=false;
   }
 
 }

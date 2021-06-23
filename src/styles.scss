@@ -417,10 +417,14 @@ body {
                         flex: 2;
                         margin-bottom: 3rem;
                         input,
-                        textarea {
+                        textarea,
+                        select {
                             background-color: #F0F2F5;
                             text-align: right;
-                            // box-shadow: 0.1px 0.1px 1px rgba(0, 0, 0, 0.5);
+                            padding: 0.5rem 1rem;
+                        }
+                        textarea {
+                            padding: 1rem 2rem;
                         }
                         label {
                             font-weight: 500;
@@ -453,11 +457,13 @@ body {
     display: flex;
     flex-direction: column;
     width: 49%;
+    margin-bottom: 2rem;
     label {
         margin-bottom: 1rem;
     }
     input,
-    textarea {
+    textarea,
+    select {
         width: 80%;
         outline: none;
         border: 0;

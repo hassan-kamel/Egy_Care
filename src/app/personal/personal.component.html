@@ -26,13 +26,20 @@
                 <form action="" [formGroup]='bloodForm' (ngSubmit)='submitMedical(bloodForm)'>
                     <div class="inputs">
                         <div class="snigle-input">
-                            <label for=""> فصيلة الدم</label>
-                            <input formControlName='bloodType' type="text">
+                            <label for="blood"> فصيلة الدم </label>
+                            <select formControlName='bloodType' name="bloods" id="blood">
+                                  <option selected >--اختر فصيلة--</option>
+                                  <option value="+A">+A</option>
+                                  <option value="+B">+B</option>
+                                  <option value="+AB">+AB</option>
+                                  <option value="+O">+O</option>
+                                  <option value="-A">-A</option>
+                                  <option value="-B">-B</option>
+                                  <option value="-AB">-AB</option>
+                                  <option value="-O">-O</option>
+                            </select>
                         </div>
-                        <div class="snigle-input o-0">
-                            <label for=""> سبب المرض</label>
-                            <textarea cols="" rows="1"></textarea>
-                        </div>
+
                     </div>
                     <div class="button">
                         <button class="btn btn-colored">حفظ</button>

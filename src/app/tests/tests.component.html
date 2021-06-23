@@ -1,5 +1,54 @@
-<div class="scroll">
+<div class="control">
+    <div class="container">
+        <ul>
+            <li (click)='add()' *ngIf="!mData?.length && !error">
+                <span> اضافة تحليل </span>
+                <i class="fas fa-plus"></i>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="add rtl" *ngIf="addClicked">
+    <div class="pop-up">
+        <div class="pop-up-bar">
+            <div class="close" (click)='desAdd()'>
+                <div class="img">
+                    <img src="../../assets/icons/close.svg" alt="close">
+                </div>
+            </div>
+            <div class="header">
+                <h3>اضافة تحليل</h3>
+            </div>
+        </div>
+        <div class="center">
+            <div class="form">
+                <form action="">
+                    <div class="inputs">
+                        <div class="snigle-input">
+                            <label for="">اسم التحليل</label>
+                            <input type="text">
+                        </div>
+                        <div class="snigle-input">
+                            <label for="">تاريخ التحليل </label>
+                            <input type="text">
+                        </div>
+                        <div class="snigle-input">
+                            <label for=""> صورة التحليل</label>
+                            <input type="file">
+                        </div>
+                    </div>
+                    <div class="button">
+                        <button class="btn btn-colored">حفظ</button>
+                    </div>
 
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="scroll">
     <div @fade class="tests section" *ngFor="let test of mData;let i=index;">
         <div class="banner"></div>
         <div class="m-data">
