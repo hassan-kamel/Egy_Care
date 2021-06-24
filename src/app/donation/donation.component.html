@@ -13,21 +13,21 @@
             </div>
             <div class="center">
                 <div class="form">
-                    <form action="">
+                    <form action=""  (ngSubmit)="onSubmit()" [formGroup]="form">
                         <div class="inputs">
                             <div class="snigle-input">
                                 <label for=""> عنوان الطلب  </label>
-                                <input type="text">
+                                <input formControlName='title' type="text">
                             </div>
                             <div class="snigle-input">
                                 <label for=""> الرسالة </label>
-                                <textarea name="" id="" cols="1" rows="1"></textarea>
+                                <textarea formControlName='body'  name="" id="" cols="1" rows="1"></textarea>
                             </div>
                             <div class="snigle-input">
                                 <label for="blood"> فصيلة الدم </label>
-                                <select name="bloods" id="blood">
+                                <select formControlName='bloodType' name="bloods" id="blood">
                                   <option value="">--اختر فصيلة--</option>
-                                  <option value="+A" >+A</option>
+                                  <option value="A+" >A+</option>
                                   <option value="+B">+B</option>
                                   <option value="+AB">+AB</option>
                                   <option value="+O">+O</option>
@@ -39,7 +39,7 @@
                             </div>
                             <div class="snigle-input">
                                 <label for="city"> المحافظة </label>
-                                <select name="citys" id="city">
+                                <select formControlName='city' name="citys" id="city">
                                   <option value="">--اختر محافظة--</option>
                                   <option value="القاهرة">القاهرة</option>
                                   <option value="الاسكندرية">الاسكندرية</option>
@@ -73,11 +73,11 @@
                             </div>
                             <div class="snigle-input">
                                 <label for=""> اسم المريض </label>
-                                <input type="text">
+                                <input formControlName='patientName' type="text">
                             </div>
                             <div class="snigle-input">
                                 <label for=""> عدد اكياس الدم </label>
-                                <input type="text">
+                                <input formControlName='numberOfBags' type="text">
                             </div>
                         </div>
                         <div class="button">

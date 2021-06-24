@@ -99,4 +99,11 @@ export class HospitalService {
     }
 
 
+    // التبرع بالدم//
+    donation(body:any ,id:any){  
+      return this.http.post(`${this.base}/api/Notifications/Post/${id}`, body)
+    }
+
+
+
 }
