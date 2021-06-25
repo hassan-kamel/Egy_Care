@@ -1,4 +1,18 @@
 <div class="header">
+    <li *ngIf="!pErr">
+        <div class="search">
+            <div class="container">
+                <div class="input">
+
+                    <input type="number" placeholder="ابحث عن طريق الرقم القومي " [(ngModel)]="ssn" (keyup)='patientSearch($event)'>
+                    <a (click)='navigate()'>
+                        <i class="fas fa-search "></i>
+                    </a>
+
+                </div>
+            </div>
+        </div>
+    </li>
     <!-- <div class="app-bar">
         <div class="container">
             <div class="links">
