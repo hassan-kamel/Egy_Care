@@ -58,12 +58,13 @@ export class SignUpComponent implements OnInit {
       (res => {
         console.log('Hello world');
         console.log(res);
-
+       this.form.reset();
 
       }
       ),
       (err) => {
         console.log(err);
+       this.form.reset();
 
       }
     )

@@ -21,8 +21,9 @@
 <section>
     <div class="container">
         <div class="search input">
+            <input type="search" name="searchInput" id="search-input" placeholder="ابحث عن  مستشفى .." [(ngModel)]="searchText">
             <i class="fas fa-search"></i>
-            <input type="search" name="searchInput" id="search-input" placeholder="search by anything .... " [(ngModel)]="searchText">
+
         </div>
         <div class="hospitals">
             <div class="hospital" *ngFor="let hospital of hospitalsConfirm  |filter:searchText ; let i=index;">
@@ -57,3 +58,6 @@
         </div>
     </div>
 </section>
+<div class="patient-err" *ngIf="!hospitalsConfirm?.length ">
+    <p> لا يوجد</p>
+</div>

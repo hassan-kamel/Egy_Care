@@ -23,7 +23,7 @@ export class AdminComponent implements OnInit {
     (response)=>{
       this.hospitalsConfirm=response;
       console.log(this.hospitalsConfirm);
-      console.log(this.hospitalsConfirm[0].files[0].filePath);
+      console.log(this.hospitalsConfirm[0]?.files[0]?.filePath);
 
     }
     ,
@@ -70,7 +70,14 @@ export class AdminComponent implements OnInit {
    }
 
    this._hospitalService.RegisterHospital(hopspitalbody)
-   .subscribe((res: any)=>console.log("done added"));
+   .subscribe((res: any)=>{
+    console.log("done added")
+    let currentUrl = this._router.url;
+    this._router.routeReuseStrategy.shouldReuseRoute = () => false;
+    this._router.onSameUrlNavigation = 'reload';
+    // console.log(currentUrl);
+    this._router.navigateByUrl(`admin`);
+   });
   });
 
 
@@ -88,7 +95,11 @@ onCancel(id:any){
  this._hospitalService.CancelHospital(id)
  .subscribe((res: any)=>{
    console.log("Hosptal delted");
-   this._router.navigate(['/admin']);
+   let currentUrl = this._router.url;
+    this._router.routeReuseStrategy.shouldReuseRoute = () => false;
+    this._router.onSameUrlNavigation = 'reload';
+    // console.log(currentUrl);
+    this._router.navigateByUrl(`admin`);
  })
 }
 

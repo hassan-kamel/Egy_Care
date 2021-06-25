@@ -16,12 +16,13 @@ export class HomePageComponent implements OnInit {
 
   constructor(public _AuthService:AuthService , public _Router:Router ,public _activatedRoute:ActivatedRoute,public _hospitalService:HospitalService, public _router:Router ) {
 
-    this.hospitalID= this._Router.url.slice(6,7);
+    // this.hospitalID= this._Router.url.slice(6,7);
 
     this._activatedRoute.paramMap.subscribe((params:ParamMap)=>{
       this._hospitalService.GetHospitalData(params.get('id'))
       .subscribe(( res)=>{
         this.hospitalData = res;
+        this.hospitalID=this.hospitalData.id;
         console.log(this.hospitalData);
 
       })

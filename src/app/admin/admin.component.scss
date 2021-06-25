@@ -1,12 +1,19 @@
+section {
+    margin-top: 8rem;
+}
+
 .search {
+    direction: rtl;
     margin-top: 2rem;
-    border-radius: 0.5rem;
+    border-radius: 5rem;
+    width: 70%;
+    margin: 0 auto;
     input {
         width: 100%;
     }
     i {
         font-size: 2rem;
-        margin-right: 2rem;
+        // margin-left: 2rem;
     }
 }
 
@@ -15,15 +22,16 @@
     justify-content: space-around;
     flex-wrap: wrap;
     .hospital {
-        box-shadow: 0.5rem 0.5rem 0.5rem 0.5rem rgba( #000, 0.2);
+        box-shadow: 0.05rem 0.05rem 0.5rem rgba( #000, 0.2);
         padding: 1rem 2rem;
         margin: 2rem 0;
-        border-radius: 0.5rem;
+        border-radius: 1rem;
         width: 24%;
         .name {
             // margin: -1rem -2rem;
             text-align: center;
             border: #0080F6 solid 0.3rem;
+            border-radius: 1rem;
         }
         .data {
             margin: 2rem 0;
@@ -59,7 +67,7 @@
             justify-content: space-around;
             align-items: center;
             .btn {
-                border-radius: 0.5rem;
+                border-radius: 1rem;
                 &:not(:last-child) {
                     margin-right: 0.5rem;
                 }

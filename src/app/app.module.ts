@@ -29,6 +29,9 @@ import { DonationComponent } from './donation/donation.component';
 export function tokenGetter() {
 return localStorage.getItem("token");
 }
+
+// import {MatProgressBarModule} from '@angular/material/progress-bar';
+
 @NgModule({
   declarations: [
     AppComponent,

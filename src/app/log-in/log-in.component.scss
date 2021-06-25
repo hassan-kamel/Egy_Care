@@ -1,6 +1,10 @@
     .login {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         .login-main {
-            height: 100vh;
+            height: 75vh;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -35,9 +39,12 @@
             }
             .wall {
                 flex: 1;
+                height: 100%;
+                overflow: hidden;
                 .img {
                     width: 100%;
-                    // display: none;
+                    height: 100%;
+                    object-fit: contain;
                 }
             }
         }

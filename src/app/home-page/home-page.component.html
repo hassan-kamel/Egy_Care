@@ -24,6 +24,16 @@
                         </li>
                         <li>
                             <div class="control">
+                                <ul>
+                                    <li [routerLink]="'admin'">
+                                        <span>عرض المستشفيات</span>
+                                        <span><i class="fas fa-hospital-alt"></i></span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="control">
 
                                 <ul>
                                     <li (click)='add()'>
@@ -59,9 +69,9 @@
     <div class="add rtl" *ngIf="addClicked && !addMedical">
         <div class="pop-up">
             <div class="pop-up-bar">
-                <div class="close">
+                <div class="close" (click)='desAdd()'>
                     <div class="img">
-                        <img src="../../assets/icons/close.svg" alt="close" (click)='desAdd()'>
+                        <img src="../../assets/icons/close.svg" alt="close">
                     </div>
                 </div>
                 <div class="header">
@@ -104,8 +114,37 @@
                                 </div>
                             </div>
                             <div class="snigle-input">
-                                <label for=""> المدينة</label>
-                                <input formControlName='city' type="text">
+                                <label for="city"> المحافظة</label>
+                                <select formControlName='city' name="citys" id="city">
+                                  <option selected>--اختر محافظة--</option>
+                                  <option value="القاهرة">القاهرة</option>
+                                  <option value="الاسكندرية">الاسكندرية</option>
+                                  <option value="الفيوم">الفيوم</option>
+                                  <option value="الجيزة">الجيزة</option>
+                                  <option value="بورسعيد">بورسعيد</option>
+                                  <option value="دمياط">دمياط</option>
+                                  <option value="الشرقية">الشرقية</option>
+                                  <option value="الغربية">الغربية</option>
+                                  <option value="الدقهلية">الدقهلية</option>
+                                  <option value="المنوفيه">المنوفيه</option>
+                                  <option value="الوادي الجديد">الوادي الجديد</option>
+                                  <option value="مطروح">مطروح</option>
+                                  <option value="شمال سيناء">شمال سيناء</option>
+                                  <option value="جنوب سيناء">جنوب سيناء</option>
+                                  <option value="المنيا">المنيا</option>
+                                  <option value="سوهاج"> سوهاج </option>
+                                  <option value="اسيوط"> اسيوط </option>
+                                  <option value="اسوان"> اسوان</option>
+                                  <option value="قنا"> قنا</option>
+                                  <option value="الاقصر"> الاقصر</option>
+                                  <option value="البحر الاحمر"> البحر الاحمر </option>
+                                  <option value="الإسماعيلية"> الإسماعيلية</option>
+                                  <option value="بني سويف"> بني سويف</option>
+                                  <option value="السويس">السويس</option>
+                                  <option value="القليوبية">القليوبية</option>
+                                  <option value="البحيرة">البحيرة</option>
+                                  <option value="كفر الشيخ">كفر الشيخ</option>
+                              </select>
                             </div>
                             <div class="snigle-input o-0">
                                 <label for=""> المدينة</label>
