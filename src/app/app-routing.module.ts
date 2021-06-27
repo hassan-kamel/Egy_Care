@@ -20,12 +20,13 @@ import { DonationComponent } from './donation/donation.component';
 
 const routes: Routes = [
   {path:'',redirectTo:'landing',pathMatch:"full"},
+  {path:'admin',component:AdminComponent },
   {path:'home/:id',component:HomePageComponent,
     children:[
       {path:'',redirectTo:'search',pathMatch:"full"},
       {path:'search',component:HomeSearchComponent},
       {path:'donation',component:DonationComponent},
-      {path:'admin',component:AdminComponent },
+    
       {path:'patient/:ssn',component:PatientComponent,
             children:[
               {path:'',redirectTo:'personal',pathMatch:"full"},

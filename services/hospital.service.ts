@@ -17,7 +17,7 @@ export class HospitalService {
   };
 
   base='http://mohamednabiil-001-site1.ctempurl.com';
-
+  
 
     ///////////////// Admin   ////////////////
 
