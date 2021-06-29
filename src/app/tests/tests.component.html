@@ -22,19 +22,19 @@
         </div>
         <div class="center">
             <div class="form">
-                <form action="">
+                <form action="" [formGroup]='form' (ngSubmit)='onSubmit()'>
                     <div class="inputs">
                         <div class="snigle-input">
                             <label for="">اسم التحليل</label>
-                            <input type="text">
+                            <input formControlName="Name" type="text">
                         </div>
                         <div class="snigle-input">
                             <label for="">تاريخ التحليل </label>
-                            <input type="text">
+                            <input formControlName="Date" type="date">
                         </div>
                         <div class="snigle-input">
                             <label for=""> صورة التحليل</label>
-                            <input type="file">
+                            <input formControlName="Files" type="file" (change)="uploadFile($event)">
                         </div>
                     </div>
                     <div class="button">
@@ -46,6 +46,16 @@
             </div>
         </div>
     </div>
+</div>
+
+
+<div class="big-img" *ngIf="opened" (click)="closeByX()">
+    <div class="close" (click)='close($event)'>
+        <div class="img-close">
+            <img src="../../assets/icons/close.svg" alt="close">
+        </div>
+    </div>
+    <img class="big" [src]="bigSrc" alt="">
 </div>
 
 <div class="scroll">
@@ -61,6 +71,10 @@
                 <span>{{test.date | date :'short'}}</span>
             </div>
         </div>
+        <div class="image">
+            <img [src]="'http://mohamednabiil-001-site1.ctempurl.com/'+test.image" (click)="open(test.image,i)">
+        </div>
+
         <div class="control">
 
             <ul>
@@ -82,3 +96,4 @@
     <div class="patient-err" *ngIf="!mData?.length  && !error">
         <p> لا يوجد</p>
     </div>
+</div>

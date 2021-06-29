@@ -17,7 +17,7 @@ export class HospitalService {
   };
 
   base='http://mohamednabiil-001-site1.ctempurl.com';
-  
+
 
     ///////////////// Admin   ////////////////
 
@@ -67,6 +67,9 @@ export class HospitalService {
       return this.http.post(`${this.base}/api/Sensitivities/PostSensitivity/${id}`, body)
 
     }
+    addNewTest(body:any , id:any){
+      return this.http.post(`${this.base}/api/Tests/PostTest/${id}`, body)
+    }
 
     /**
      *
@@ -100,7 +103,7 @@ export class HospitalService {
 
 
     // التبرع بالدم//
-    donation(body:any ,id:any){  
+    donation(body:any ,id:any){
       return this.http.post(`${this.base}/api/Notifications/Post/${id}`, body)
     }
 

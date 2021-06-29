@@ -8,9 +8,56 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            .log-in {
+                flex: 1;
+            }
+            nav {
+                direction: rtl;
+                margin-bottom: 2rem;
+                position: relative;
+                // z-index: 9;
+                &::after {
+                    content: '';
+                    display: block;
+                    background-color: rgba(0, 128, 246, 0.3);
+                    width: 100%;
+                    height: 0.2rem;
+                    position: absolute;
+                    left: 0%;
+                    bottom: -25%;
+                }
+                .links {
+                    ul {
+                        list-style: none;
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        li {
+                            text-align: center;
+                            cursor: pointer;
+                            position: relative;
+                            font-weight: 700;
+                            transition: all 0.2s ease;
+                            color: rgba(128, 128, 128, 0.8);
+                            width: 50%;
+                            &:hover {
+                                filter: opacity(70%);
+                            }
+                            // img {
+                            //     width: 20%;
+                            //     margin-left: 2rem;
+                            // }
+                            i {
+                                font-weight: 700;
+                                margin-left: 1rem;
+                                // font-size: 2rem;
+                            }
+                        }
+                    }
+                }
+            }
             .form {
                 direction: rtl;
-                flex: 1;
                 form {
                     .input:nth-child(2) {
                         i {

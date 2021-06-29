@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Observable, Observer } from 'rxjs';
 import { Router } from '@angular/router';
+import { AuthService } from 'services/auth.service';
 
 
 @Component({
@@ -18,7 +19,7 @@ export class AdminComponent implements OnInit {
 
 
 
-  constructor(public _hospitalService:HospitalService , public _router: Router) {
+  constructor(public _hospitalService:HospitalService , public _router: Router,public _AuthService:AuthService ) {
   _hospitalService.getAllHospital().subscribe(
     (response)=>{
       this.hospitalsConfirm=response;
@@ -38,17 +39,21 @@ export class AdminComponent implements OnInit {
     this.opened![index]=true;
     console.log(this.opened);
   }
-  getFilePath(index:number,idxOfFile:number){
-    let fullPath=this.hospitalsConfirm[index].files[idxOfFile].filePath;
-    console.log(fullPath);
-    for(let i=fullPath.length-1;i>0;i--){
-      if(fullPath[i]=='\\'){
-        this.filePath=fullPath.substring(i+1);
-        console.log(this.filePath);
-        break;
-      }
+  logout(){
+    this._AuthService.logout();
+    this._router.navigate(['/login']);
     }
-  }
+  // getFilePath(index:number,idxOfFile:number){
+  //   let fullPath=this.hospitalsConfirm[index].files[idxOfFile].filePath;
+  //   console.log(fullPath);
+  //   for(let i=fullPath.length-1;i>0;i--){
+  //     if(fullPath[i]=='\\'){
+  //       this.filePath=fullPath.substring(i+1);
+  //       console.log(this.filePath);
+  //       break;
+  //     }
+  //   }
+  // }
 
 
 

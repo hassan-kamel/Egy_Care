@@ -1,23 +1,64 @@
 <section class="login">
     <div class="container">
         <div class="login-main">
-            <div class="form">
-                <form (ngSubmit)="submitForm()" [formGroup]="form" action="">
+            <div class="log-in">
+                <nav>
+                    <div class="links">
+                        <ul>
+                            <li (click)="showHospital($event)" id="hos" class="active-link">
+                                <span>الدخول بالمستشفي </span>
 
-                    <div class="input">
-                        <i class="fas fa-envelope"></i>
-                        <input [formControlName]="'Email'" type="text" placeholder="البريد الالكتروني">
+                            </li>
+                            <li (click)="showAdmin($event)" id="admin">
+                                <span>الدخول بالمدير</span>
+                            </li>
+
+
+                        </ul>
                     </div>
 
-                    <div class="input">
-                        <i class="fas fa-unlock-alt"></i>
-                        <input id="mysecretpassword" [formControlName]="'Password'" type="password" placeholder="الرقم السري" showHideInput>
-                        <i class="fas fa-eye" showHideTrigger="mysecretpassword" (click)="toggleIcon($event)"></i>
-                    </div>
-                    <button class="btn btn-colored" type="submit">دخول</button>
-                    <h4>ليس لديك حساب ؟ <a routerLink="/signup">انشاء حساب</a></h4>
+                </nav>
 
-                </form>
+
+
+
+                <div class="form" *ngIf="hospital">
+                    <form (ngSubmit)="submitForm()" [formGroup]="formhospital" action="">
+                        <div class="input">
+                            <i class="fas fa-envelope"></i>
+                            <input id="myemail" [formControlName]="'Email'" type="text" placeholder="البريد الالكتروني">
+                        </div>
+                        <div class="input">
+                            <i class="fas fa-unlock-alt"></i>
+                            <input id="mysecretpassword" [formControlName]="'password'" type="password" placeholder="الرقم السري" showHideInput>
+                            <i class="fas fa-eye" showHideTrigger="mysecretpassword" (click)="toggleIcon($event)"></i>
+                        </div>
+                        <button class="btn btn-colored" type="submit">hospital</button>
+                        <h4>ليس لديك حساب ؟ <a routerLink="/signup">انشاء حساب</a></h4>
+                    </form>
+                </div>
+
+
+
+
+                <div class="form" *ngIf="admin">
+                    <form (ngSubmit)="submitedForm()" [formGroup]="form" action="">
+                        <div class="input">
+                            <i class="fas fa-user-shield"></i>
+                            <input [formControlName]="'patientSSN'" type="text" placeholder=" الرقم القومي">
+                        </div>
+                        <div class="input">
+                            <i class="fas fa-unlock-alt"></i>
+                            <input [formControlName]="'password'" id="mysecretpassword" type="password" placeholder="الرقم السري" showHideInput>
+                            <i class="fas fa-eye" showHideTrigger="mysecretpassword" (click)="toggleIcon($event)"></i>
+                        </div>
+                        <button class="btn btn-colored" type="submit">admin</button>
+                        <!-- <h4>ليس لديك حساب ؟ <a routerLink="/signup">انشاء حساب</a></h4> -->
+                    </form>
+                </div>
+
+
+
             </div>
             <div class="wall">
                 <img class="img" src="../../assets/images/clip-medical-doctor.png" alt="medical care">

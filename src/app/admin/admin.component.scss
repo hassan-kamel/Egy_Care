@@ -1,3 +1,47 @@
+.app-bar {
+    .links {
+        ul {
+            display: flex;
+            .non-logo {
+                display: flex;
+                align-items: center;
+                li {
+                    margin: 0 2rem;
+                }
+                // background-color: red;
+            }
+            .home-logo {
+                // background-color: blue;
+                cursor: pointer;
+                li {
+                    cursor: pointer;
+                    &:nth-child(1) {
+                        background-color: transparent;
+                        border-radius: 2rem;
+                        // transition: transform 0.2s ease;
+                        &:hover {
+                            transform: scale(1);
+                        }
+                    }
+                }
+            }
+            li {
+                color: #0080F6;
+                &:nth-child(1) {
+                    cursor: pointer;
+                    padding: 0.5rem 2rem;
+                    background-color: #F0F2F5;
+                    // flex: 1;
+                }
+                &:nth-child(2) {
+                    cursor: pointer;
+                    // flex: 4;
+                }
+            }
+        }
+    }
+}
+
 section {
     margin-top: 12vh;
 }
@@ -21,7 +65,9 @@ section {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
+    direction: rtl;
     .hospital {
+        direction: rtl;
         box-shadow: 0.05rem 0.05rem 0.5rem rgba( #000, 0.2);
         padding: 1rem 2rem;
         margin: 2rem 0;
@@ -38,7 +84,7 @@ section {
             display: flex;
             align-items: center;
             i {
-                margin-right: 1rem;
+                margin-left: 1rem;
                 color: #0080F6;
             }
         }
@@ -46,7 +92,7 @@ section {
             display: flex;
             .open-file {
                 &:not(:last-child) {
-                    margin-right: 1rem;
+                    margin-left: 1rem;
                 }
                 .bttn {
                     border: none;
@@ -58,6 +104,9 @@ section {
                     a {
                         text-decoration: none;
                         color: #0080F6;
+                        &:hover {
+                            color: #0c2d4b;
+                        }
                     }
                 }
             }

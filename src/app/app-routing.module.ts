@@ -26,7 +26,7 @@ const routes: Routes = [
       {path:'',redirectTo:'search',pathMatch:"full"},
       {path:'search',component:HomeSearchComponent},
       {path:'donation',component:DonationComponent},
-    
+
       {path:'patient/:ssn',component:PatientComponent,
             children:[
               {path:'',redirectTo:'personal',pathMatch:"full"},
