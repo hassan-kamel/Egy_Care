@@ -9,8 +9,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class DonationComponent implements OnInit {
   form: FormGroup;
-  constructor(public _Router:Router , private fb: FormBuilder ,public _activatedRoute:ActivatedRoute,public _hospitalService:HospitalService, public _router:Router) { 
-
+  constructor(public _Router:Router , private fb: FormBuilder ,public _activatedRoute:ActivatedRoute,public _hospitalService:HospitalService, public _router:Router) {
+    // console.log(this._Router.url.slice(6,this._Router.url.length-9));
     this.form  = this.fb.group({
       title:['', Validators.required],
       body:['', Validators.required],
@@ -23,13 +23,13 @@ export class DonationComponent implements OnInit {
 
   }
 Id:any;
-  ngOnInit(): void { 
+  ngOnInit(): void {
     let x =  this._router.url;
-     this.Id = x.substr(6 , 1) 
+     this.Id = x.slice(6 , x.length-9);
   }
 
 
-   
+
 
   onSubmit(){
   var body = {
@@ -46,12 +46,12 @@ this._hospitalService.donation(body , this.Id)
 .subscribe((res)=>{
   if(res){
     console.log('done')
-    
-    
+
+
       console.log('no')
-    
+
   }
-  
+
 } , (err) => {alert("no user found to send notfiactions")})
 
 
