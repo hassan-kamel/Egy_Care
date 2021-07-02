@@ -14,6 +14,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class DonationComponent implements OnInit {
   form: FormGroup;
+  notifactionSent: boolean = true;
   constructor(
     public _Router: Router,
     private fb: FormBuilder,
@@ -50,9 +51,11 @@ export class DonationComponent implements OnInit {
     this._hospitalService.donation(body, this.Id).subscribe(
       (res) => {
         if (res) {
-          console.log('done');
-
-          console.log('no');
+          this.notifactionSent = true;
+          this.form.reset();
+          setTimeout(() => {
+            this.notifactionSent = false;
+          }, 3000);
         }
       },
       (err) => {
