@@ -13,7 +13,8 @@ export class HomeSearchComponent implements OnInit {
 
   hospitalID: any;
   constructor(public _AuthService:AuthService , public _Router:Router ,public _activatedRoute:ActivatedRoute,public _hospitalService:HospitalService, public _router:Router ) {
-    this.hospitalID= this._Router.url.slice(6,7);
+    this.hospitalID= this._Router.url.slice(6,this._Router.url.length-7);
+    console.log(this.hospitalID);
     };
 
 

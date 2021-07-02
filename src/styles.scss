@@ -75,7 +75,8 @@ body {
     i {
         color: $dark;
     }
-    input {
+    input,
+    select {
         background-color: transparent;
         border: 0;
         outline: none;
@@ -528,6 +529,13 @@ body {
         // margin-bottom: 1rem;
         font-size: 1.7rem;
         border-radius: 5rem;
+    }
+}
+
+.textarea {
+    width: 100% !important;
+    textarea {
+        width: 90% !important;
     }
 }
 

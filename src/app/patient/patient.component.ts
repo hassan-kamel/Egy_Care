@@ -23,12 +23,13 @@ export class PatientComponent implements OnInit {
   hospitalID: any;
   medErr:any;
 
-
 constructor(private _activatedRoute:ActivatedRoute,private _hospitalService:HospitalService,public _router:Router) {
-  this.hospitalID= this._router.url.slice(6,7);
-    // console.log( _activatedRoute.snapshot.params.ssn);
-    let ssn = _activatedRoute.snapshot.params.ssn;
-    this.pSsn=ssn;
+
+  let ssn = _activatedRoute.snapshot.params.ssn;
+  this.pSsn=ssn;
+  console.log(this.pSsn.toString(10).length);
+  this.hospitalID= this._router.url.slice(6,(this._router.url.length)-(18+this.pSsn.toString(10).length));
+  console.log(this.hospitalID);
     _hospitalService.getPatientBySsn(ssn).subscribe((res)=>{
       console.log(res);
       // console.log(res.id);
@@ -46,7 +47,7 @@ constructor(private _activatedRoute:ActivatedRoute,private _hospitalService:Hosp
 
         }
         )
-    }
+      }
     ,
     (err)=>{
       console.log(err);

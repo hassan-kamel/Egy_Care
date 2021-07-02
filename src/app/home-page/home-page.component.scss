@@ -1,6 +1,7 @@
 .home-page {
     // padding-top: 10rem;
     .app-bar {
+        // position: relative;
         .links {
             ul {
                 display: flex;
@@ -9,6 +10,22 @@
                     align-items: center;
                     li {
                         margin: 0 2rem;
+                        .search {
+                            position: absolute;
+                            left: 63%;
+                            top: 50%;
+                            transform: translateY(-50%);
+                            width: calc(100%/5);
+                            .input {
+                                font-size: 1.5rem;
+                                a {
+                                    background-color: transparent;
+                                    i {
+                                        color: #0080F6;
+                                    }
+                                }
+                            }
+                        }
                     }
                     // background-color: red;
                 }

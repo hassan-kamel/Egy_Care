@@ -1,4 +1,4 @@
-<div class="header">
+<!-- <div class="header">
     <li *ngIf="!pErr">
         <div class="search">
             <div class="container">
@@ -13,70 +13,7 @@
             </div>
         </div>
     </li>
-    <!-- <div class="app-bar">
-        <div class="container">
-            <div class="links">
-                <ul>
-                    <ul>
-                        <li>
-                            <a routerLink="/login">
-                                <span>خروج</span>
-                                <span><i class="fas fa-sign-out-alt"></i></span>
-                            </a>
-                        </li>
-                        <li>اسم المستشفي</li>
-                        <li>
-                            <div class="control">
-
-                                <ul>
-                                    <li>
-                                        <span>تبرع</span>
-                                        <span><i class="fas fa-hand-holding-medical"></i></span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="control">
-
-                                <ul>
-                                    <li (click)='add()'>
-                                        <span> اضافة مريض جديد  </span>
-                                        <i class="fas fa-plus"></i>
-                                    </li>
-                                </ul>
-
-                            </div>
-                        </li>
-                        <li *ngIf="!pErr">
-                            <div class="search">
-                                <div class="container">
-                                    <div class="input">
-                                        <input type="number" placeholder="ابحث عن طريق الرقم القومي " [(ngModel)]="ssn" (keyup)='patientSearch($event)'>
-                                        <a (click)='navigate()'>
-                                            <i class="fas fa-search "></i>
-                                        </a>
-
-                                    </div>
-                                </div>
-                            </div>
-
-                        </li>
-
-                        <li>
-                            <div class="logo" [routerLink]="'/home'">
-                                <img src="../../assets/images/logo2bg.png" alt="medical care">
-                                <div class="egycare">
-                                    <h1>egycare</h1>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                </ul>
-            </div>
-        </div>
-    </div> -->
-</div>
+</div> -->
 <div class="patient" *ngIf="!pErr">
     <div class="container">
         <div class="patient-data">
@@ -133,8 +70,6 @@
         </div>
     </div>
     <p>هذا المريض <span>({{pSsn}})</span> ليس لديه اي بيانات </p>
-
-
 </div>
 
 
