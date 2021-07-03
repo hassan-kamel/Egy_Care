@@ -28,15 +28,15 @@
                         <div class="snigle-input">
                             <label for="blood"> فصيلة الدم </label>
                             <select formControlName='bloodType' name="bloods" id="blood">
-                                  <option selected >--اختر فصيلة--</option>
-                                  <option value="+A">+A</option>
-                                  <option value="+B">+B</option>
-                                  <option value="+AB">+AB</option>
-                                  <option value="+O">+O</option>
-                                  <option value="-A">-A</option>
-                                  <option value="-B">-B</option>
-                                  <option value="-AB">-AB</option>
-                                  <option value="-O">-O</option>
+                              <option selected>--اختر فصيلة--</option>
+                              <option value="A+">+A</option>
+                              <option value="B+">+B</option>
+                              <option value="AB+">+AB</option>
+                              <option value="O+">+O</option>
+                              <option value="A-">-A</option>
+                              <option value="B-">-B</option>
+                              <option value="AB-">-AB</option>
+                              <option value="O-">-O</option>
                             </select>
                         </div>
 
@@ -98,6 +98,10 @@
                 <div class="single-data">
                     <span>رقمه  </span>
                     <span>{{pData?.realtiveTwoPhone}}</span>
+                </div>
+                <div class="single-data">
+                    <span>فصيلة الدم  </span>
+                    <span>{{mData?.bloodType}}</span>
                 </div>
             </div>
         </div>

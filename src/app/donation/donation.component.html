@@ -18,16 +18,16 @@
                             <div class="snigle-input">
                                 <label for="blood"> فصيلة الدم </label>
                                 <select formControlName='bloodType' name="bloods" id="blood">
-                  <option value="">--اختر فصيلة--</option>
-                  <option value="+A">A+</option>
-                  <option value="+B">B+</option>
-                  <option value="+AB">AB+</option>
-                  <option value="+O">O+</option>
-                  <option value="-A">A-</option>
-                  <option value="-B">B-</option>
-                  <option value="-AB">AB-</option>
-                  <option value="-O">O-</option>
-                </select>
+                                  <option selected>--اختر فصيلة--</option>
+                                  <option value="A+">+A</option>
+                                  <option value="B+">+B</option>
+                                  <option value="AB+">+AB</option>
+                                  <option value="O+">+O</option>
+                                  <option value="A-">-A</option>
+                                  <option value="B-">-B</option>
+                                  <option value="AB-">-AB</option>
+                                  <option value="O-">-O</option>
+                                </select>
                             </div>
                             <div class="snigle-input">
                                 <label for=""> اسم المريض </label>
@@ -94,9 +94,9 @@
     </div>
 </div>
 
-<div class="done">
+<div class="done" *ngIf="notifactionSent">
     <div class="donation">
         <i class="far fa-check-circle"></i>
-        <h3 *ngIf="notifactionSent">تم ارسال الطلب </h3>
+        <h3>تم ارسال الطلب </h3>
     </div>
 </div>
